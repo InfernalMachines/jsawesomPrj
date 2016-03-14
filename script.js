@@ -67,6 +67,33 @@ Holiday.prototype.listing_props = function(){
 }
 
 
+//The Multiplier object with a constructor function
+function Multiplier(){
+	this.currentValue = 1;
+	this.getCurrentValue = function(){
+		return this.currentValue;
+	}
+	this.multiply = function(num){
+		var newValue = this.currentValue * num
+		this.currentValue = newValue;
+		return this.currentValue;
+	}
+}
+
+var mult = new Multiplier();
+
+//The Multiplier in object literal
+var Multiplier = {
+	"currentValue": 1,
+	getCurrentValue: function(){
+		return this.currentValue;
+	},
+	multiply: function(num){
+		var newValue = this.currentValue * num;
+		this.currentValue = newValue;
+		return this.currentValue;
+	}
+}
 
 
 

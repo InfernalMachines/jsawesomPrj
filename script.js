@@ -96,6 +96,122 @@ var Multiplier = {
 }
 
 
+function Album(){
+	this.photo_list = [];
+	this.new_photo = function(photo){
+		this.photo_list.push(photo);
+		return this.photo_list;
+	}
+	this.list_photos = function(){
+		for (i = 0; i < this.photo_list.length; i++){
+			console.log(this.photo_list[i].name + " at the " + this.photo_list[i].location);
+		}
+	}
+	this.get_photo = function(num){
+		val = num - 1;
+		return this.photo_list[val];
+	}
+}
+
+function Photo(name, location){
+	this.name = name;
+	this.location = location;
+}
+
+var summerBreak = new Album;
+var photo1 = new Photo("sandcastles", "beach");
+var photo2 = new Photo("crowdsurfing", "concert");
+var photo3 = new Photo("new baby", "hospital");
+
+summerBreak.new_photo(photo1);
+summerBreak.new_photo(photo2);
+summerBreak.new_photo(photo3);
+
+
+
+
+
+//Create a prototypical Person object. From this object, extend a Teacher object and a Student object. Each of these objects should have attributes and methods pertinent to what they describe. Also create a School object that should be able to store instances of students and teachers. Make sure to write code afterwards that creates instances of these objects to make sure that what you've written works well and you're able to store the necessary data in each object.
+
+
+
+function Person(name, age){
+	this.name = name;
+	this.age = age;
+	this.breathes = function(){
+		return this.name + " takes a deep breath and tries not to do anything rash...";
+	}
+}
+
+function Student(name, age, grade, subjects){
+	Person.apply(this,arguments);
+	this.grade = grade;
+	this.subjects = subjects;
+	this.description = function(){
+		return this.name + " is in " + this.grade + "th grade and is studying the following: " + this.subjects;
+	}
+}
+
+
+function Teacher(name, age, subject, poison, favoriteDiscipline){
+	Person.apply(this,arguments);
+	this.subject = subject;
+	this.poison = poison;
+	this.favoriteDiscipline = favoriteDiscipline;
+	this.how = function(){
+		return this.name + " survives teaching by partaking in " + this.poison + ". When students act out in class, the old go-to disciplinary method is: " + favoriteDiscipline;
+	}
+}
+
+
+function School(name){
+	this.name = name;
+	this.all = [];
+	this.students = [];
+	this.teachers = [];
+	this.new_teacher = function(teach){
+		this.all.push(teach);
+		this.teachers.push(teach);
+		return this.teachers;
+	}
+	this.new_student = function(stud){
+		this.all.push(stud);
+		this.students.push(stud);
+		return this.students;
+	}
+	this.listStudents = function(){
+		for (i = 0; i < this.students.length; i++){
+			return this.students[i].name;
+		}
+	}
+	this.listTeachers = function(){
+		for (i = 0; i < this.teachers.length; i++){
+			return this.teachers[i].name;
+		}
+	}
+	this.listAll = function(){
+		for (i = 0; i < this.all.length; i++){
+			console.log(this.all[i].name);
+		}
+	}
+}
+
+var hogwarts = new School("Hogwarts");
+
+
+
+
+
+Student.prototype = new Person();
+Teacher.prototype = new Person();
+
+var Bertrand = new Student("Bertrand", "15", "10", "math, science, history, and gym");
+var Beulah = new Student("Beulah", "17", "8", "mostly just recess");
+
+var Dave = new Teacher("Mr. Thermopolis", "72 and too old for this shit", "Government", "illegal cockfighting", "paddling");
+var Delilah = new Teacher("Delilah", "31", "yoga", "selling babies on the black market, also whiskey", "casting a hex")
+
+
 
 
 

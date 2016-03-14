@@ -21,3 +21,9 @@ function Fruit(name, taste, size){
 
 var banana = new Fruit("banana", "sweet", "medium");
 var pear = new Fruit("pear", "crisp", "round");
+
+//you can use dot notation, or square brackets
+banana.size 
+banana.pear
+banana.salad
+bannana["name"]

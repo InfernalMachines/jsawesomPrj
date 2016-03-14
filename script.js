@@ -95,9 +95,10 @@ var Multiplier = {
 	}
 }
 
-
+//Create a new object called Album
 function Album(){
 	this.photo_list = [];
+//pushes new photos into the array that is the album
 	this.new_photo = function(photo){
 		this.photo_list.push(photo);
 		return this.photo_list;
@@ -112,12 +113,12 @@ function Album(){
 		return this.photo_list[val];
 	}
 }
-
+//create a new object called photo
 function Photo(name, location){
 	this.name = name;
 	this.location = location;
 }
-
+//instantiate a new Album instance and some new Photo instances
 var summerBreak = new Album;
 var photo1 = new Photo("sandcastles", "beach");
 var photo2 = new Photo("crowdsurfing", "concert");
@@ -131,10 +132,7 @@ summerBreak.new_photo(photo3);
 
 
 
-//Create a prototypical Person object. From this object, extend a Teacher object and a Student object. Each of these objects should have attributes and methods pertinent to what they describe. Also create a School object that should be able to store instances of students and teachers. Make sure to write code afterwards that creates instances of these objects to make sure that what you've written works well and you're able to store the necessary data in each object.
-
-
-
+//Create a new Person Object
 function Person(name, age){
 	this.name = name;
 	this.age = age;
@@ -143,6 +141,7 @@ function Person(name, age){
 	}
 }
 
+//The Student object extends the Person Object
 function Student(name, age, grade, subjects){
 	Person.apply(this,arguments);
 	this.grade = grade;
@@ -152,7 +151,7 @@ function Student(name, age, grade, subjects){
 	}
 }
 
-
+//The Teacher object also extends the Person Object
 function Teacher(name, age, subject, poison, favoriteDiscipline){
 	Person.apply(this,arguments);
 	this.subject = subject;
@@ -163,7 +162,7 @@ function Teacher(name, age, subject, poison, favoriteDiscipline){
 	}
 }
 
-
+//Create a School Object that can store Student instances and Teacher instances
 function School(name){
 	this.name = name;
 	this.all = [];
@@ -196,14 +195,16 @@ function School(name){
 	}
 }
 
+
+//Instantiate a new instance of a School
 var hogwarts = new School("Hogwarts");
 
-
-
-
-
+//Make sure that any changes made to the Person object will also be applied to the Teacher and Student prototypes
 Student.prototype = new Person();
 Teacher.prototype = new Person();
+
+
+
 
 var Bertrand = new Student("Bertrand", "15", "10", "math, science, history, and gym");
 var Beulah = new Student("Beulah", "17", "8", "mostly just recess");

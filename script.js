@@ -191,7 +191,7 @@ function School(name){
 	}
 	this.listAll = function(){
 		for (i = 0; i < this.all.length; i++){
-			console.log(this.all[i].name);
+			console.log(this.all[i].name + " is " + this.all[i].age + ".");
 		}
 	}
 }
@@ -211,6 +211,10 @@ var Beulah = new Student("Beulah", "17", "8", "mostly just recess");
 var Dave = new Teacher("Mr. Thermopolis", "72 and too old for this shit", "Government", "illegal cockfighting", "paddling");
 var Delilah = new Teacher("Delilah", "31", "yoga", "selling babies on the black market, also whiskey", "casting a hex")
 
+hogwarts.new_student(Beulah)
+hogwarts.new_student(Bertrand)
+hogwarts.new_teacher(Dave)
+hogwarts.new_teacher(Delilah)
 
 
 

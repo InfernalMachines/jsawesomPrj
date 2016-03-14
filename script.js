@@ -54,6 +54,18 @@ var theFourth = new IndependenceDay("July 4th", "summer", "freedom", "'MURICA");
 var elCinco = new IndependenceDay("Cinco de Mayo", "spring", "rememberance", "Mexico");
 
 
+//Adding a method to the parent object --> it will also be applied to any child objects when you use the syntax below:
+Holiday.prototype.listing_props = function(){   
+	//declaring an empty array for the upcoming method ******* BE SURE TO DECLARE THIS VARIABLE INSIDE OF THE FUNCTION OR ELSE IT WILL JUST KEEP ADDING PROPERTIES ON TOP OF EACH OTHER EVERYTIME IT'S CALLED ********
+	var emptyArray = []
+	//using a (for, in) loop -> 'this' refers to the current instance on which the method is being called
+	for (x in this){
+	//this pushes the individual properties into the aforementioned empty array
+		emptyArray.push(this[x]);
+	} 
+	return emptyArray;
+}
+
 
 
 
